@@ -1,0 +1,46 @@
+<UserControl x:Class="View.AddMovieUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="10">
+            <TextBlock Text="Добавить фильм" FontSize="20" FontWeight="Bold" Margin="0,0,0,16"/>
+
+            <TextBlock Text="Название фильма:"/>
+            <TextBox Text="{Binding NewTitle, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,0,8"/>
+
+            <Grid Margin="0,0,0,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="0,0,5,0">
+                    <TextBlock Text="Год:"/>
+                    <TextBox Text="{Binding NewYear, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="5,0,0,0">
+                    <TextBlock Text="Жанр:"/>
+                    <TextBox Text="{Binding NewGenre, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Text="Режиссер:"/>
+            <TextBox Text="{Binding NewDirector, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,0,8"/>
+
+            <TextBlock Text="Описание:"/>
+            <TextBox Text="{Binding NewDescription, UpdateSourceTrigger=PropertyChanged}"
+                     Height="80"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     Margin="0,2,0,12"/>
+
+            <Button Content="Добавить фильм"
+                    Command="{Binding AddNewMovieCommand}"
+                    Height="30"
+                    FontWeight="Bold"/>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
